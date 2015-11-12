@@ -5,10 +5,11 @@ public interface Player {
 	
 	 void sayHello();
 	 void sayGoodGame();
-	 void putCardOnTable();
-	 void takeCardFromDeck();
-	 void takeCardFromTable();
+	 void putOnTable();
+	 void takeFromDeck();
+	 void takeFromTable();
 	 void getHealth();
-	 
+	 void getHand();
+	 void generateHand();
 	 
 }
