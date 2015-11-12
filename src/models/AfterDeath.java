@@ -1,8 +1,8 @@
-package models;
+package Models;
 
 public interface AfterDeath {
 
 	
-	public void afterTable();/*afterDeathAction*/
+	public void afterTable();/* action which perform when creature are dying*/
 	
 }

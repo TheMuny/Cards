@@ -1,7 +1,7 @@
 package Room;
 
 import Cards.Card;
-import models.Player;
+import Models.Player;
 
 public class GameRoom {
 

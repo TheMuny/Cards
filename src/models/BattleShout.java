@@ -1,7 +1,7 @@
-package models;
+package Models;
 
 public interface BattleShout {
 
 	
-	public void beforeTable();/* action which perform when creature is dead */
+	public void beforeTable();/* action which perform when creature are coming to table */
 }
