@@ -1,5 +1,7 @@
 package Cards.Creatures;
 
-public class C_SilverElephant extends Creature {
+import java.util.UUID;
 
+public class C_SilverElephant extends Creature {
+	String uuid = UUID.randomUUID().toString();
 }

@@ -1,5 +1,7 @@
 package Cards.Weapons;
 
-public class W_Hammer extends Weapon{
+import java.util.UUID;
 
+public class W_Hammer extends Weapon{
+	String uuid = UUID.randomUUID().toString();
 }

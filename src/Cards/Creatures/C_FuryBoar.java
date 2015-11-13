@@ -1,5 +1,7 @@
 package Cards.Creatures;
 
-public class C_FuryBoar extends Creature{
+import java.util.UUID;
 
+public class C_FuryBoar extends Creature{
+	String uuid = UUID.randomUUID().toString();
 }
