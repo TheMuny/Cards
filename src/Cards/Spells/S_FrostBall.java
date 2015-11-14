@@ -1,9 +1,14 @@
 package Cards.Spells;
 
-import java.util.UUID;
+import Cards.Creatures.Creature;
+import Models.Player;
 
 
-public class S_FrostBall extends Spell{
-	String uuid = UUID.randomUUID().toString();
+
+
+public interface S_FrostBall {
+	
+	void frostBToFace(Player player);
+	void frostBToCreature(Creature creature);
 	  /*deal 4 damage to enemy target(creatures that on the table or player)*/
 }

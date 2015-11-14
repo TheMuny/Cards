@@ -2,7 +2,7 @@ package Cards;
 
 public abstract class Card {
 
-	private String name;
+	protected String name;
 	private int Face;
 	private int Back;
 	

@@ -1,8 +1,11 @@
 package Cards.Spells;
 
-import java.util.UUID;
+import Cards.Card;
 
-public class S_HellFire extends Spell{
-	String uuid = UUID.randomUUID().toString();
+
+
+public interface  S_HellFire {
+	
+	void hellFire(Card[] table,Card[] table1);
 	/*deal 3 damage to all creatures on the table(means both players)*/
 }

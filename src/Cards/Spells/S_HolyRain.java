@@ -1,8 +1,11 @@
 package Cards.Spells;
 
-import java.util.UUID;
+import Cards.Card;
 
-public class S_HolyRain extends Spell {
-	String uuid = UUID.randomUUID().toString();
+
+public interface S_HolyRain {
+	
+	void Rain(Card[] table);
+	
 	/*restore 2 health to all your creatures on the table this and next your turn*/
 }

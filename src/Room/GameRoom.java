@@ -7,7 +7,8 @@ public class GameRoom implements Models.GameRoom{
 
 	private Player player1;
 	private Player player2;
-	private Card[][] Table;
+	private Card[] tableP1;
+	private Card[] tableP2;
 	private Card[] p1Deck;
 	private Card[] p2Deck;
 	

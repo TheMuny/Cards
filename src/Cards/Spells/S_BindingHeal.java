@@ -1,9 +1,9 @@
 package Cards.Spells;
 
-import java.util.UUID;
+import Cards.Creatures.Creature;
 
-public class S_BindingHeal extends Spell{
-	String uuid = UUID.randomUUID().toString();
-	/* put on creatures. Selected creature take same heal as next creature who get healing*/
-
+public interface  S_BindingHeal {
+	
+	/* put on creatures. Selected creature get same heal as next creature who get healing*/
+  void BindingHeal(Creature creature);
 }

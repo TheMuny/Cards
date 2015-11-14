@@ -1,9 +1,12 @@
 package Cards.Spells;
 
-import java.util.UUID;
+import Cards.Creatures.Creature;
 
-public class S_HandOfGod extends Spell {
-	String uuid = UUID.randomUUID().toString();
+
+
+public interface S_HandOfGod {
+	
+	void  handOfGod(Creature creature);
 	/*	restore 6 health to selected creature */
 
 }

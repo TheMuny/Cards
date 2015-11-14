@@ -12,11 +12,11 @@ public class Player implements Models.Player{
 	
 	
 	public void sayHello() {
-		System.out.print("Hello!");
+		// TODO Auto-generated method stub
 		
 	}
 	public void sayGoodGame() {
-		System.out.println("GG!~You better than me");
+		// TODO Auto-generated method stub
 		
 	}
 	public void putOnTable() {
@@ -31,9 +31,9 @@ public class Player implements Models.Player{
 		// TODO Auto-generated method stub
 		
 	}
-	public void getHealth() {
+	public int getHealth() {
 		// TODO Auto-generated method stub
-		
+		return 0;
 	}
 	public void getHand() {
 		// TODO Auto-generated method stub
@@ -43,7 +43,9 @@ public class Player implements Models.Player{
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
+	public void modifyHealth(int val) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

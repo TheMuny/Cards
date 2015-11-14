@@ -8,8 +8,9 @@ public interface Player {
 	 void putOnTable();
 	 void takeFromDeck();
 	 void takeFromTable();
-	 void getHealth();
+	 int getHealth();
 	 void getHand();
 	 void generateHand();
+	 void modifyHealth(int val);
 	 
 }
