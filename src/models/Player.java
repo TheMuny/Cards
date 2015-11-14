@@ -1,16 +1,19 @@
 package Models;
 
+import Cards.Card;
+import Room.Hand;
+
 public interface Player {
 
 	
 	 void sayHello();
 	 void sayGoodGame();
-	 void putOnTable();
-	 void takeFromDeck();
-	 void takeFromTable();
-	 int getHealth();
-	 void getHand();
-	 void generateHand();
+	 Card selectCard(int select);
+	 void useCard();	
+	 void takeFromDeck(Card[]deck);
+	 void takeFromTable(Card[]table);
+	  int getHealth();
+	 Hand getHand();
 	 void modifyHealth(int val);
 	 
 }

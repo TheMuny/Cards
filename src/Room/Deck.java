@@ -1,13 +1,13 @@
 package Room;
 import java.util.Random;
-import java.util.UUID;
+
 
 import  Cards.Card;
 
 
 public class Deck implements Models.Deck{
 
-	String uuid = UUID.randomUUID().toString();
+
 	private Card[] deck = new Card[30];
 	
 	
