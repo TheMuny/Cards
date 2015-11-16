@@ -10,10 +10,11 @@ public interface Player {
 	 void sayGoodGame();
 	 Card selectCard(int select);
 	 void useCard();	
-	 void takeFromDeck(Card[]deck);
-	 void takeFromTable(Card[]table);
+	 void takeFromDeck(int quantity);
+	 void takeFromTable(Card[]table, int number) ;
 	  int getHealth();
 	 Hand getHand();
 	 void modifyHealth(int val);
+	 void setMana(int value);
 	 
 }

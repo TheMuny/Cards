@@ -5,5 +5,5 @@ public interface Deck {
 	
 	
 	void shuffle();
-	void collect();
+	void randomCollect();
 }

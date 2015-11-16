@@ -2,15 +2,15 @@ package Cards.Creatures;
 
 import Cards.Card;
 
-public  class Creature extends Card {
+public  abstract class Creature extends Card {
 
-	private int health;
-	private int attack;
+	protected int health;
+	protected int attack;
 	
 	
 	public void modifyHealth(int val) {
 		health=val;
-				}
+	}
 	public int getHealth() {
 		return health;
 	}

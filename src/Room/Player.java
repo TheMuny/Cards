@@ -1,16 +1,17 @@
 package Room;
 
 import Cards.Card;
-import Cards.Creatures.Creature;
+
 
 
 public class Player implements Models.Player{
 
 	
 	
-	private int health;
+	private int health=30;
 	private Hand hand = new Hand();
-	public int number;
+	private int mana =0;
+	private Deck deck = new Deck();
 	
 	
 	public void sayHello() {
@@ -23,32 +24,33 @@ public class Player implements Models.Player{
 		System.out.println("GoodGame!");
 	}
 	
+	public void setMana(int value) {
+		mana = value;
+	}
+
 	public Card selectCard(int select){
 		return hand.getValue(select);
 	}
 	
-	public void takeFromDeck(Card[]deck) {
-		
-		for(int i=0;i<deck.length;i++){
-	    	if(deck[i]!=null){
-			hand.addElement(deck[i]);
-			deck[i]=null;
-			break;
-//           			
-//			int count=0;
-//			hand.addElement(deck[count]);
-//			deck[count]=null;
-//			count++;
-		}
-	  }
+	public void takeFromDeck(int quantity) {
+		int i=0;
+		do{
+		hand.addElement(deck.getCard());
+		deck.remove();
+		i++;
+		}while(i!=quantity);
 	}	
-	public void takeFromTable(Card[]table) {
-		// TODO Auto-generated method stub
-	   	
+	public void takeFromTable(Card[]table, int number) {
+	    hand.addElement(table[number]);
+	    table[number]=null;
 	}
 	
 	public int getHealth() {
 		return health;
+	}
+	
+	public Deck getDeck(){
+		return deck;
 	}
 	
 	public Hand getHand() {

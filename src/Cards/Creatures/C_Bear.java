@@ -1,7 +1,9 @@
 package Cards.Creatures;
 
-import java.util.UUID;
-
 public class C_Bear extends Creature {
-	String uuid = UUID.randomUUID().toString();
+	
+	public C_Bear(){
+		health = 3;
+		attack = 2;
+	}
 }

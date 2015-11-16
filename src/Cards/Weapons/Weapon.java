@@ -2,8 +2,18 @@ package Cards.Weapons;
 
 import Cards.Card;
 
-public class Weapon extends Card {
+public abstract class Weapon extends Card {
 
-	private int durability;
-	private int damage;
+	protected int durability;
+	protected int damage;
+	
+	
+	public int getDurability() {
+		return durability;
+	}
+	public int getDamage() {
+		return damage;
+	}
+	
+	
 }

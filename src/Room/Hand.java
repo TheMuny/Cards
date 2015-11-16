@@ -7,9 +7,7 @@ public class Hand{
 	
 
 	public Card getValue(int index) {
-		
-		return Array[index];	
-		/*Show element on index*/
+		return Array[index];
 	}
 
 	public void addElement(Card value) {
