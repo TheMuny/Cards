@@ -34,10 +34,14 @@ public class Player implements Models.Player{
 			hand.addElement(deck[i]);
 			deck[i]=null;
 			break;
+//           			
+//			int count=0;
+//			hand.addElement(deck[count]);
+//			deck[count]=null;
+//			count++;
 		}
 	  }
-	}
-	
+	}	
 	public void takeFromTable(Card[]table) {
 		// TODO Auto-generated method stub
 	   	
