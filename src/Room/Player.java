@@ -1,18 +1,47 @@
 package Room;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
 import Cards.Card;
 
 
 
 public class Player implements Models.Player{
 
-	
+	private  String  file = "Deck";
 	
 	private int health=30;
 	private Hand hand = new Hand();
 	private int mana =0;
 	private Deck deck = new Deck();
+	//********************************************************
+	public Player(){
+		
+	}
 	
+	
+	//********************************************************
+	public void saveDeck(Player player) throws FileNotFoundException, IOException{
+		Deck d = player.getDeck();		
+		 ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(new File(file)));
+	    os.writeObject(d);
+		os.close();
+	}
+	
+	public void returnDeck(Player player) throws FileNotFoundException, IOException, ClassNotFoundException{
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(file)));
+        Deck dFromFile = (Deck)ois.readObject();
+        player.setDeck(dFromFile);
+        ois.close();
+      
+	}
 	
 	public void sayHello() {
 		// TODO Auto-generated method stub
@@ -49,6 +78,10 @@ public class Player implements Models.Player{
 		return health;
 	}
 	
+	public void setDeck(Deck deck) {
+		this.deck= deck;
+	}
+	
 	public Deck getDeck(){
 		return deck;
 	}
@@ -65,6 +98,8 @@ public class Player implements Models.Player{
 	public void useCard() {
 		// TODO Auto-generated method stub	
 	}
+
+	
 
 	
 			

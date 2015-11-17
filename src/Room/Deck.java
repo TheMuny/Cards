@@ -1,4 +1,5 @@
 package Room;
+import java.io.Serializable;
 import java.util.Random;
 
 
@@ -18,15 +19,29 @@ import Cards.Weapons.W_Sword;
 
 
 
-public class Deck implements Models.Deck{
+public class Deck implements Models.Deck, Serializable{
 
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Card[] deck = new Card[30];;
     private int counter =0;
     
+    public Deck(){
+    	
+    }
     
     
-    public void setCounter(int counter) {
+    
+    public void setDeck(Card[] deck) {
+		this.deck = deck;
+	}
+
+
+
+	public void setCounter(int counter) {
 		this.counter = counter;
 	}
 
