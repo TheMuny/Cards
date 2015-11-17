@@ -28,21 +28,7 @@ public class Player implements Models.Player{
 	
 	
 	//********************************************************
-	public void saveDeck(Player player) throws FileNotFoundException, IOException{
-		Deck d = player.getDeck();		
-		 ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(new File(file)));
-	    os.writeObject(d);
-		os.close();
-	}
-	
-	public void returnDeck(Player player) throws FileNotFoundException, IOException, ClassNotFoundException{
-		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(file)));
-        Deck dFromFile = (Deck)ois.readObject();
-        player.setDeck(dFromFile);
-        ois.close();
-      
-	}
-	
+
 	public void sayHello() {
 		// TODO Auto-generated method stub
 		System.out.println("Hello");

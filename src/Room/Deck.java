@@ -27,7 +27,7 @@ public class Deck implements Models.Deck, Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private Card[] deck = new Card[30];;
-    private int counter =0;
+    private transient int counter =0;
     
     public Deck(){
     	
