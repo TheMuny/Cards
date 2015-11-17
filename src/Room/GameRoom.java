@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Random;
+import java.util.UUID;
 
 import Cards.Card;
 import Cards.Creatures.Creature;
@@ -20,15 +21,16 @@ public class GameRoom implements Models.GameRoom{
 	private  String  file = "Deck";
 	
 	 private static Player player1 = new Player();
-	 private Player player2 = new Player();
-	 private Card[] tableP1 = new Card[8];
-	 private Card[] tableP2 = new Card[8];
-     private int step=0;
+	 private static Player player2 = new Player();
+	 private static Card[] tableP1 = new Card[8];
+	 private static Card[] tableP2 = new Card[8];
+     private static int step=0;
 	
 	public void saveDeck(Player player) throws FileNotFoundException, IOException{
-		
+		Random r = new Random();
+	    int u = r.nextInt(2000000);
 		Deck d = player.getDeck();			
-	    ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(new File(file)));
+	    ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(new File(file+u)));
 	    os.writeObject(d);
 		os.close();
 	}
@@ -65,6 +67,10 @@ public class GameRoom implements Models.GameRoom{
 		
 			G.returnDeck(player1);
 		
+			
+			G.player1.putOnTable(tableP1, 3, 2);
+			
+			System.out.print(tableP1[2]);
 		
 		
 		

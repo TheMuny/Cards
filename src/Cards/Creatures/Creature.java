@@ -19,7 +19,7 @@ public  abstract class Creature extends Card {
 	}
 	
 	public void freez(int turn){//can't attack 1 turn
-		
+		//TODO
 	}
 	
 }

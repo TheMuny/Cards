@@ -47,6 +47,11 @@ public class Player implements Models.Player{
 		return hand.getValue(select);
 	}
 	
+	public void putOnTable(Card[]table, int positionInHand, int positionOnTable) {
+		table[positionOnTable]=selectCard(positionInHand);
+	    hand.removeValue(selectCard(positionInHand));
+	}
+	
 	public void takeFromDeck(int quantity) {
 		int i=0;
 		do{

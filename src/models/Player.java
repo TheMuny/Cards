@@ -9,7 +9,8 @@ public interface Player {
 	 void sayHello();
 	 void sayGoodGame();
 	 Card selectCard(int select);
-	 void useCard();	
+	 void useCard();
+	 
 	 void takeFromDeck(int quantity);
 	 void takeFromTable(Card[]table, int number) ;
 	  int getHealth();
