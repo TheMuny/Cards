@@ -4,9 +4,23 @@ import Cards.Creatures.Creature;
 
 
 
-public interface S_HandOfGod {
+public class S_HandOfGod extends Spell{
 	
-	void  handOfGod(Creature creature);
+	/**
+	 * 
+	 */
+   public S_HandOfGod(){
+	   cost = 2;
+   } 
+   
+
+	private static final long serialVersionUID = 1L;
+
+	public void handOfGod(Creature creature) {	
+		if(isDead=false){
+		creature.modifyHealth(creature.getHealth()+6);}
+		isDead=true;
+	}
 	/*	restore 6 health to selected creature */
 
 }

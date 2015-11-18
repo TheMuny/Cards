@@ -1,14 +1,5 @@
 package Room;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-
 import Cards.Card;
 
 
@@ -16,8 +7,8 @@ import Cards.Card;
 public class Player implements Models.Player{
 
 	private  String  file = "Deck";
-	
-	private int health=30;
+	private int crystalls = 0;
+    private int health=30;
 	private Hand hand = new Hand();
 	private int mana =0;
 	private Deck deck = new Deck();
@@ -37,6 +28,13 @@ public class Player implements Models.Player{
 	public void sayGoodGame() {
 		// TODO Auto-generated method stub
 		System.out.println("GoodGame!");
+	}
+
+	public void crystallsIncr(){
+		crystalls++;
+	}
+	public int getCrystalls() {
+		return crystalls;
 	}
 	
 	public void setMana(int value) {

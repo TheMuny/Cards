@@ -4,7 +4,15 @@ import java.util.Random;
 
 
 import Cards.Card;
-import Cards.Spells.Spell;
+import Cards.Spells.S_ChainLighting;
+import Cards.Spells.S_FireWall;
+import Cards.Spells.S_FireBall;
+import Cards.Spells.S_FrostBall;
+import Cards.Spells. S_FrostNova; 
+import Cards.Spells.S_HandOfGod;
+import Cards.Spells.S_HellFire;
+import Cards.Spells.S_HolyRain;
+import Cards.Spells.S_LightningStrike;
 import Cards.Creatures.C_Crow;
 import Cards.Creatures.C_Dragon;
 import Cards.Creatures.C_Fairy;
@@ -73,10 +81,20 @@ public class Deck implements Models.Deck, Serializable{
 	public void randomCollect() {
 		for(int i=0;i<deck.length;i++){
 			Random r = new Random();
-			int rand = r.nextInt(130);
-			if(rand>=0&&rand<40){
-				deck[i]=new Spell();
-		    }else if (rand>=0&&rand<=40){
+			int rand = r.nextInt(151);
+			if(rand>=0&&rand<=6){
+				deck[i]=new S_ChainLighting();
+			}else if (rand>=7&&rand<=13){
+		    	deck[i]=new S_FireWall();
+			}else if (rand>=14&&rand<=20){
+		    	deck[i]=new S_FireBall();
+			}else if (rand>=21&&rand<=27){
+		    	deck[i]=new S_FrostBall();
+			}else if (rand>=28&&rand<=34){
+		    	deck[i]=new S_FrostNova();
+			}else if (rand>=35&&rand<=38){
+		    	deck[i]=new S_HandOfGod();
+		    }else if (rand>=39&&rand<=40){
 		    	deck[i]=new C_Crow();
 		    }else if (rand>=41&&rand<=46){
 		    	deck[i]=new C_Dragon();
@@ -94,6 +112,12 @@ public class Deck implements Models.Deck, Serializable{
 		    	deck[i]=new W_Sword();
 		    }else if (rand>=109&&rand<=129){
 		    	deck[i]=new C_SilverElephant();
+		    }else if (rand>=130&&rand<=136){
+		    	deck[i]=new S_HellFire();
+		    }else if (rand>=137&&rand<=144){
+		    	deck[i]=new S_HolyRain();
+		    }else if (rand>=145&&rand<=150){
+		    	deck[i]=new S_LightningStrike();
 		    }else;
 		}
 	 }

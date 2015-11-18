@@ -8,12 +8,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Random;
-import java.util.UUID;
-
 import Cards.Card;
-import Cards.Creatures.Creature;
-import Cards.Spells.Spell;
-import Cards.Weapons.Weapon;
 import Room.Player;
 
 public class GameRoom implements Models.GameRoom{
@@ -22,15 +17,27 @@ public class GameRoom implements Models.GameRoom{
 	
 	 private static Player player1 = new Player();
 	 private static Player player2 = new Player();
-	 private static Card[] tableP1 = new Card[8];
-	 private static Card[] tableP2 = new Card[8];
+	 private static Card[] tableP1;
+	 private static Card[] tableP2;
      private static int step=0;
 	
+ 	public void  clearTable(Card[] table){
+ 		for(int i =0;i<table.length;i++){
+ 			if(table[i]!=null){
+ 			   Card c = (Card)table[i];
+ 			   if(c.isAlive()){
+ 				   table[i]=null;
+ 			   }
+ 			}
+ 		}
+				
+	}
+     
 	public void saveDeck(Player player) throws FileNotFoundException, IOException{
-		Random r = new Random();
-	    int u = r.nextInt(2000000);
+	//	Random r = new Random();
+	//  int u = r.nextInt(2000000);
 		Deck d = player.getDeck();			
-	    ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(new File(file+u)));
+	    ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(new File(file)));
 	    os.writeObject(d);
 		os.close();
 	}
@@ -49,10 +56,15 @@ public class GameRoom implements Models.GameRoom{
 		player1.takeFromDeck(4);
 		player2.getDeck().randomCollect();
 		player2.takeFromDeck(4);
+		tableP1 = new Card[8];
+		tableP2 = new Card[8];
 	}
 	
 	
 	public void changeTurn(){
+		//TODO
+		clearTable(tableP1);
+		clearTable(tableP2);
 			step++;
 	}
 	
