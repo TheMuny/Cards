@@ -11,12 +11,13 @@ public class  S_HellFire extends Spell{
 	 * 
 	 */
    public S_HellFire(){
+	   name="S_HellFire";
 	   cost = 4;
    }
 	private static final long serialVersionUID = 1L;
 
 	public void hellFire(Card[] table, Card[] table1) {
-		if(isDead=false){
+		if(isDead==false){
 		for(int i =0;i<table.length;i++){
 			if(table[i]instanceof Creature){
 				Creature m = (Creature)table[i];				

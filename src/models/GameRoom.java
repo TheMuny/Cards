@@ -1,8 +1,10 @@
 package Models;
 
+import Room.Player;
+
 public interface GameRoom {
 
 	
 	void prepareGame();
-	void changeTurn();
+	void changeTurn(Player player);
 }

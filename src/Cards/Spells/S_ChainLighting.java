@@ -14,6 +14,7 @@ public class S_ChainLighting  extends Spell{
 	 */
 	private static final long serialVersionUID = 1L;
 	public S_ChainLighting(){
+		name = "S_ChainLighting";
 		cost = 3;
 	}
 	
@@ -24,7 +25,7 @@ public class S_ChainLighting  extends Spell{
 
 	public void chainLighting(Card[] table) {
 		
-		if(isDead=false){		
+		if(isDead==false){		
 		for(int i =0;i<table.length;i++){
 			if(table[i]instanceof Creature){
 				Creature m = (Creature)table[i];

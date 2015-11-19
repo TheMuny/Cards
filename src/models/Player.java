@@ -16,6 +16,6 @@ public interface Player {
 	  int getHealth();
 	 Hand getHand();
 	 void modifyHealth(int val);
-	 void setMana(int value);
+	 void setCrystalls(int value);
 	 
 }

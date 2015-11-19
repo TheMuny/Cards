@@ -10,6 +10,7 @@ public class S_HandOfGod extends Spell{
 	 * 
 	 */
    public S_HandOfGod(){
+	   name  = "S_HandOfGod";
 	   cost = 2;
    } 
    
@@ -17,7 +18,7 @@ public class S_HandOfGod extends Spell{
 	private static final long serialVersionUID = 1L;
 
 	public void handOfGod(Creature creature) {	
-		if(isDead=false){
+		if(isDead==false){
 		creature.modifyHealth(creature.getHealth()+6);}
 		isDead=true;
 	}

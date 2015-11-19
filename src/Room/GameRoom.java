@@ -19,13 +19,20 @@ public class GameRoom implements Models.GameRoom{
 	 private static Player player2 = new Player();
 	 private static Card[] tableP1;
 	 private static Card[] tableP2;
-     private static int step=0;
+     private static int step=1;
 	
- 	public void  clearTable(Card[] table){
+ 	public void  clear(Card[] table, Hand hand){
+ 		int size = hand.length();
+ 		for(int i=0;i<size;i++){
+ 			if(hand.getValue(i)!=null&&hand.getValue(i).isDead()){
+ 				hand.removeValue(hand.getValue(i));
+ 				size=hand.length();
+ 			}
+ 		}
  		for(int i =0;i<table.length;i++){
  			if(table[i]!=null){
  			   Card c = (Card)table[i];
- 			   if(c.isAlive()){
+ 			   if(c.isDead()){
  				   table[i]=null;
  			   }
  			}
@@ -61,10 +68,11 @@ public class GameRoom implements Models.GameRoom{
 	}
 	
 	
-	public void changeTurn(){
+	public  void changeTurn(Player player){
 		//TODO
-		clearTable(tableP1);
-		clearTable(tableP2);
+		player.setCrystalls(step);
+		clear(tableP1,player1.getHand());
+		clear(tableP2,player2.getHand());
 			step++;
 	}
 	
@@ -72,18 +80,27 @@ public class GameRoom implements Models.GameRoom{
 	public static void main(String[] args)  throws IOException, ClassNotFoundException{		
 		GameRoom G = new GameRoom();
 		G.prepareGame();
+		G.player1.printCards();
+		System.out.println("______________________");
+		G.player1.putOnTable( 1,tableP1, 1);
+		G.player1.printCards();
+		System.out.println("______________________");
+		System.out.println(G.player1.getCrystalls());
+		G.changeTurn(player2);
 		
-			G.saveDeck(player1) ;
 		
-			G.returnDeck(player1);
-		
-			G.returnDeck(player1);
-		
-			
-			G.player1.putOnTable(tableP1, 3, 2);
-			
-			System.out.print(tableP1[2]);
-		
+//			G.saveDeck(player1) ;
+//		
+//			G.returnDeck(player1);
+//		
+//			G.returnDeck(player1);
+//		
+//			G.player1.takeFromDeck(28);
+//			
+//			G.player1.putOnTable(tableP1, 3, 2);
+//			
+//			System.out.print(tableP1[2]);
+//		
 		
 		
 //		Deck d = player1.getDeck();		

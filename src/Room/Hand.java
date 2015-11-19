@@ -19,6 +19,9 @@ public class Hand{
 	}
 
 
+	public int length(){
+		return Array.length;
+	}
 	public void removeValue(Card value) {
 		int count = 0;
 		

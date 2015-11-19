@@ -12,12 +12,13 @@ public class S_FrostBall extends Spell{
 	 * 
 	 */
 	public S_FrostBall(){
+		name = "S_FrostBall";
 		cost = 3;
 	}
 
 	private static final long serialVersionUID = 1L;
 	public void frostBToFace(Player player) {
-		if(isDead=false){
+		if(isDead==false){
 		// TODO Auto-generated method stub
 		player.modifyHealth(player.getHealth()-3);
 		}
