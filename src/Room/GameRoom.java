@@ -7,17 +7,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.List;
 import java.util.Random;
 import Cards.Card;
-import Cards.Spells.Spell;
 import Room.Player;
 
 public class GameRoom implements Models.GameRoom{
 
 	private  String  file = "Deck";
-	private int saveNumber;
+	private int saveNumber=0;
 
-	private static Player player1 = new Player();
+	 private static Player player1 = new Player();
 	 private static Player player2 = new Player();
 	 private static Card[] tableP1;
 	 private static Card[] tableP2;
@@ -30,12 +30,12 @@ public class GameRoom implements Models.GameRoom{
 	}
 
      
- 	public void  clear(Card[] table, Hand hand){
- 		int size = hand.length();
+ 	public void  clear(Card[] table, List<Card> hand){
+ 		int size = hand.size();
  		for(int i=0;i<size;i++){
- 			if(hand.getValue(i)!=null&&hand.getValue(i).isDead()){
- 				hand.removeValue(hand.getValue(i));
- 				size=hand.length();
+ 			if(hand.get(i)!=null&&hand.get(i).isDead()){
+ 				hand.remove(i);
+ 				size=hand.size();
  			}
  		}
  		for(int i =0;i<table.length;i++){
@@ -52,7 +52,7 @@ public class GameRoom implements Models.GameRoom{
 	public void saveDeck(Player player) throws FileNotFoundException, IOException{
 	//	Random r = new Random();
 	//  int u = r.nextInt(2000000);
-		Deck d = player.getDeck();			
+		List<Card> d = player.getDeck();			
 	    ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(new File(file+saveNumber)));
 	    os.writeObject(d);
 		os.close();
@@ -60,7 +60,7 @@ public class GameRoom implements Models.GameRoom{
 	
 	public void returnDeck(Player player) throws FileNotFoundException, IOException, ClassNotFoundException{
 		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(file+saveNumber)));
-        Deck dFromFile = (Deck)ois.readObject();
+		List<Card> dFromFile = (List<Card>)ois.readObject();
         player.setDeck(dFromFile);
         ois.close();
       
@@ -68,10 +68,13 @@ public class GameRoom implements Models.GameRoom{
 	
 	
 	public void prepareGame() {
-		player1.getDeck().randomCollect();
-		player1.takeFromDeck(4);
-		player2.getDeck().randomCollect();
-		player2.takeFromDeck(4);
+		player1.randomCollect();
+		player2.randomCollect();
+		
+		for(int i =0;i<4;i++){
+			player1.takeFromDeck();
+			player2.takeFromDeck();
+		}	
 		tableP1 = new Card[8];
 		tableP2 = new Card[8];
 	}
@@ -88,22 +91,26 @@ public class GameRoom implements Models.GameRoom{
 	
 	public static void main(String[] args)  throws IOException, ClassNotFoundException{		
 		GameRoom G = new GameRoom();
-		G.prepareGame();
-		G.player1.printCards();
-		System.out.println("______________________");
-		G.player1.putOnTable( 1,tableP1, 1);
-		G.player1.printCards();
-		System.out.println("______________________");
-		System.out.println(G.player1.getCrystalls());
-		G.player1.selectCard(2);
-		G.player1.useCast(2, tableP1);
-		System.out.println(tableP1[1]);
-		System.out.println(G.player1.getCrystalls());
+	//	G.prepareGame();
+	//	G.saveDeck(player1);
+		G.returnDeck(player1);
+		for(int i =0;i<4;i++){
+			player1.takeFromDeck();
+	//		player2.takeFromDeck();
+		}
 	
 		
-			G.saveDeck(player1) ;
+//		for(int i =0;i<player1.getHand().length();i++){
+//	    System.out.println(player1.getHand().getValue(i));}	
+		G.player1.printHandCards();
+		System.out.println("P2health == "+G.player2.getHealth());
+	    G.player1.useCast(2, player2);
+	    System.out.println("P2health == "+G.player2.getHealth());
+	//	G.player1.useCast(4, tableP1, tableP2);
 		
-			G.returnDeck(player1);
+//			G.saveDeck(player1) ;
+//		
+//			G.returnDeck(player1);
 //		
 //			G.returnDeck(player1);
 //		

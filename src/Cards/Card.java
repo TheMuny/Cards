@@ -2,8 +2,6 @@ package Cards;
 
 import java.io.Serializable;
 
-import Cards.Creatures.Creature;
-import Models.Player;
 
 public abstract class Card implements Serializable{
 

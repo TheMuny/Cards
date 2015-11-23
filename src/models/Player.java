@@ -1,7 +1,8 @@
 package Models;
 
+import java.util.List;
+
 import Cards.Card;
-import Room.Hand;
 
 public interface Player {
 
@@ -14,7 +15,7 @@ public interface Player {
 	 void takeFromDeck(int quantity);
 	 void takeFromTable(Card[]table, int number) ;
 	  int getHealth();
-	 Hand getHand();
+	 List<Card> getHand();
 	 void modifyHealth(int val);
 	 void setCrystalls(int value);
 	 

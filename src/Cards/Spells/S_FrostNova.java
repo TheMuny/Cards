@@ -2,8 +2,7 @@ package Cards.Spells;
 
 import Cards.Card;
 import Cards.Creatures.Creature;
-import Models.Player;
-
+import Room.Player;
 
 
 public class S_FrostNova extends Spell implements Cast{
@@ -12,7 +11,7 @@ public class S_FrostNova extends Spell implements Cast{
 	 * 
 	 */
    public S_FrostNova(){
-	   name = "S_FrostNova";
+	   name = "FrostNova";
 	   cost =3;
    }
 	private static final long serialVersionUID = 1L;

@@ -2,7 +2,7 @@ package Cards.Spells;
 
 import Cards.Card;
 import Cards.Creatures.Creature;
-import Models.Player;
+import Room.Player;
 
 
 
@@ -13,7 +13,7 @@ public class S_FrostBall extends Spell implements Cast{
 	 * 
 	 */
 	public S_FrostBall(){
-		name = "S_FrostBall";
+		name = "FrostBall";
 		cost = 3;
 	}
 

@@ -4,7 +4,7 @@ import java.util.Random;
 
 import Cards.Card;
 import Cards.Creatures.Creature;
-import Models.Player;
+import Room.Player;
 
 
 
@@ -15,7 +15,7 @@ public class S_ChainLighting  extends Spell implements Cast{
 	 */
 	private static final long serialVersionUID = 1L;
 	public S_ChainLighting(){
-		name = "S_ChainLighting";
+		name = "ChainLighting";
 		cost = 3;
 	}
 

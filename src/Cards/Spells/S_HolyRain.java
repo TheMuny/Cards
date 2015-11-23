@@ -2,7 +2,7 @@ package Cards.Spells;
 
 import Cards.Card;
 import Cards.Creatures.Creature;
-import Models.Player;
+import Room.Player;
 
 
 public class S_HolyRain extends Spell implements Cast{
@@ -11,7 +11,7 @@ public class S_HolyRain extends Spell implements Cast{
 	 * 
 	 */
     public S_HolyRain(){
-    	name = "S_HolyRain";
+    	name = "HolyRain";
     	cost=2;
     }
 	private static final long serialVersionUID = 1L;

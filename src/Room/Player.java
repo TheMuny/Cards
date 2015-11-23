@@ -1,143 +1,222 @@
 package Room;
 
-import Cards.Card;
-import Cards.Creatures.Creature;
-import Cards.Spells.Cast;
-import Cards.Spells.Spell;
+
+import Cards.*;
+import Cards.Creatures.*;
+import Cards.Spells.*;
+import Cards.Weapons.*;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 
+public class Player{
 
-public class Player implements Models.Player{
-
-	private  String  file = "Deck";
-	private int crystalls = 20;
+	
+	private int crystals = 20;
     private int health=30;
-	private Hand hand = new Hand();
-//	private int mana =0;
-	private Deck deck = new Deck();
-	//********************************************************
+	private List<Card> hand = new ArrayList<Card>();
+	private List<Card> deck = new ArrayList<Card>();
+
+	
+	//********************************************************//********************************************************
+	                         //  Constructor
+	
 	public Player(){
 		
 	}
 	
 	
-	//********************************************************
-
+	//********************************************************//********************************************************
+	                            //Phrases
 	public void sayHello() {
-		// TODO Auto-generated method stub
 		System.out.println("Hello");
-	}
-	
-	public void sayGoodGame() {
-		// TODO Auto-generated method stub
+	}	
+	public void sayGoodGame() {		
 		System.out.println("GoodGame!");
 	}
-
-	public void modifyCrystalls(int value){
-		crystalls=value;
+	//********************************************************//********************************************************
+	                       //Methods with Crystals
+	public void modifyCrystals(int value){
+		crystals=value;
 	}
-	public int getCrystalls() {
-		return crystalls;
+	public int getCrystals() {
+		return crystals;
 	}
-	
 	public void setCrystalls(int value) {
-		crystalls = value;
+		crystals = value;
 	}
-
-	public Card selectCard(int select){
-		return hand.getValue(select);
-	}
+	//********************************************************//********************************************************
 	
-	public void putOnTable(int positionInHand, Card[]table, int positionOnTable) {
-		if(!selectCard(positionInHand).isDead()&&selectCard(positionInHand).getCost()<=crystalls&&
-		selectCard(positionInHand).isCreature()	){
-		crystalls = crystalls -selectCard(positionInHand).getCost();
-		table[positionOnTable]=selectCard(positionInHand);
-	    hand.removeValue(selectCard(positionInHand));    
-		}
-	}
-	
-	public void takeFromDeck(int quantity) {
-		int i=0;
-		do{
-		hand.addElement(deck.getCard());
-		deck.remove();
-		i++;
-		}while(i!=quantity);
-	}	
-	public void takeFromTable(Card[]table, int number) {
-	    hand.addElement(table[number]);
-	    table[number]=null;
-	}
-	
+                            //Methods with Health
 	public int getHealth() {
 		return health;
 	}
-	
-	public void setDeck(Deck deck) {
-		this.deck= deck;
-	}
-	
-	public Deck getDeck(){
-		return deck;
-	}
-	
-	public Hand getHand() {
-		return  hand;
-		
-	}
 	public void modifyHealth(int val) {
 		health = val;
+	}
+	//********************************************************//********************************************************	
+	
+                           //Methods with GameBoard
+
+	public void putOnTable(int positionInHand, Card[]table, int positionOnTable) {
+		try{
+		if(!hand.get(positionInHand).isDead()&&hand.get(positionInHand).getCost()<=crystals&&
+		hand.get(positionInHand).isCreature()){
+		crystals = crystals -hand.get(positionInHand).getCost();
+		table[positionOnTable]=hand.get(positionInHand);
+	    hand.remove(positionInHand);}
+		}catch(Exception e){
+			System.out.println("Wrong arguments");
+		}
 		
 	}
-	
-	public void useCard() {
-		// TODO Auto-generated method stub	
+	public void takeFromTable(Card[]table, int number) {
+        try{
+	    hand.add(table[number]);
+	    table[number]=null;
+	    }catch(Exception e){
+		System.out.println("Wrong arguments");
+		}
 	}
+	
 
+	//********************************************************//********************************************************
+                              //Methods with Deck
+	public void randomCollect() {
+		for(int i=0;i<30;i++){
+			Random r = new Random();
+			int rand = r.nextInt(151);
+			if(rand>=0&&rand<=6){
+				deck.add(new S_ChainLighting());
+			}else if (rand>=7&&rand<=13){
+				deck.add(new S_FireWall());
+			}else if (rand>=14&&rand<=20){
+				deck.add(new S_FireBall());
+			}else if (rand>=21&&rand<=27){
+				deck.add(new S_FrostBall());
+			}else if (rand>=28&&rand<=34){
+				deck.add(new S_FrostNova());
+			}else if (rand>=35&&rand<=38){
+				deck.add(new S_HandOfGod());
+		    }else if (rand>=39&&rand<=40){
+		    	deck.add(new C_Crow());
+		    }else if (rand>=41&&rand<=46){
+		    	deck.add(new C_Dragon());
+		    }else if (rand>=47&&rand<=57){
+		    	deck.add(new C_Fairy());
+		    }else if (rand>=58&&rand<=68){
+		    	deck.add(new C_FuryBoar());
+		    }else if (rand>=69&&rand<=79){
+		    	deck.add(new C_NightGhost());
+		    }else if (rand>=80&&rand<=90){
+		    	deck.add(new W_Dagger());
+		    }else if (rand>=91&&rand<=100){
+		    	deck.add(new W_Hammer());
+		    }else if (rand>=101&&rand<=108){
+		    	deck.add(new W_Sword());
+		    }else if (rand>=109&&rand<=129){
+		    	deck.add(new C_SilverElephant());
+		    }else if (rand>=130&&rand<=136){
+		    	deck.add(new S_HellFire());
+		    }else if (rand>=137&&rand<=144){
+		    	deck.add(new S_HolyRain());
+		    }else if (rand>=145&&rand<=150){
+		    	deck.add(new S_LightningStrike());
+		    }else;
+		}
+	 }
+	public void takeFromDeck() {	
+		try{	
+		if(hand.size()<10){
+    	hand.add(deck.get(0));
+		deck.remove(0);		
+		}else{deck.remove(0);}
+		}catch(Exception e){
+			System.out.println("You have no Cards :(");}
+	}
+	
+	public void setDeck(List<Card> deck) {
+		this.deck= deck;
+	}
+	public List<Card> getDeck(){
+		return deck;
+	}
+	//********************************************************//********************************************************
+	                               //Methods with Hand
+	public List<Card> getHand() {
+		return  hand;	
+	}
+	//********************************************************//********************************************************
+	                              //Cast interface
 	public void useCast(int positionInHand, Player player){
 		//TODO
-		if(!selectCard(positionInHand).isDead()&&selectCard(positionInHand).getCost()<=crystalls&&
-				selectCard(positionInHand).isSpell()){
-			crystalls = crystalls -selectCard(positionInHand).getCost();
-			Cast s = (Cast)selectCard(positionInHand);
+		if(!hand.get(positionInHand).isDead()&&hand.get(positionInHand).getCost()<=crystals&&
+				hand.get(positionInHand).isSpell()){
+			crystals = crystals -hand.get(positionInHand).getCost();
+			Cast s = (Cast)hand.get(positionInHand);
 			s.useCast(player);			
 		}
 	}
 	public void useCast(int positionInHand, Creature creature){
 		//TODO
-		if(!selectCard(positionInHand).isDead()&&selectCard(positionInHand).getCost()<=crystalls&&
-				selectCard(positionInHand).isSpell()){
-			crystalls = crystalls -selectCard(positionInHand).getCost();
-			Cast s = (Cast)selectCard(positionInHand);
+		if(!hand.get(positionInHand).isDead()&&hand.get(positionInHand).getCost()<=crystals&&
+				hand.get(positionInHand).isSpell()){
+			crystals = crystals -hand.get(positionInHand).getCost();
+			Cast s = (Cast)hand.get(positionInHand);
 			s.useCast(creature);			
 		}
 	}
 	public void useCast(int positionInHand,Card[] table){
 		//TODO
-		if(!selectCard(positionInHand).isDead()&&selectCard(positionInHand).getCost()<=crystalls&&
-				selectCard(positionInHand).isSpell()){
-			crystalls = crystalls -selectCard(positionInHand).getCost();
-			Cast s = (Cast)selectCard(positionInHand);
+		if(!hand.get(positionInHand).isDead()&&hand.get(positionInHand).getCost()<=crystals&&
+				hand.get(positionInHand).isSpell()){
+			crystals = crystals -hand.get(positionInHand).getCost();
+			Cast s = (Cast)hand.get(positionInHand);
 			s.useCast(table);			
 		}
 	}
 	public void useCast(int positionInHand,Card[] table,Card[]table1){
 		//TODO
-		if(!selectCard(positionInHand).isDead()&&selectCard(positionInHand).getCost()<=crystalls&&
-				selectCard(positionInHand).isSpell()){
-			crystalls = crystalls -selectCard(positionInHand).getCost();
-			Cast s = (Cast)selectCard(positionInHand);
+		if(!hand.get(positionInHand).isDead()&&hand.get(positionInHand).getCost()<=crystals&&
+				hand.get(positionInHand).isSpell()){
+			crystals = crystals -hand.get(positionInHand).getCost();
+			Cast s = (Cast)hand.get(positionInHand);
 			s.hellFire(table,table1);			
 		}
 	}
-	//testMethods
-	public void printCards(){
-		for(int i =0;i<hand.length()-1;i++){
-			System.out.println(hand.getValue(i).getCost());
+	//********************************************************//********************************************************
+	
+	                              //testMethods
+	public void printHandCards(){
+		for(Card i:hand){
+			System.out.println(i.getName()+"  "+i.getCost());
 		}
+		System.out.println("CurrentCrystalls = " + getCrystals());
 	}
-
+	
+//	public static void main(String[] args)  throws IOException, ClassNotFoundException{	
+//		Player p = new Player();
+//		
+//		System.out.println(p.deck.size());
+//		p.randomCollect();
+//		System.out.println(p.deck.size());	
+//		
+//		
+//		System.out.println(p.deck.size()+"   "+p.hand.size());
+//		p.takeFromDeck();
+//		System.out.println(p.deck.size()+"   "+p.hand.size());
+//		p.takeFromDeck();
+//		System.out.println(p.deck.size()+"   "+p.hand.size());
+//		p.takeFromDeck();
+//		System.out.println(p.deck.size()+"   "+p.hand.size());
+//		p.takeFromDeck();
+//		System.out.println(p.deck.size()+"   "+p.hand.size());
+//		
+//		p.printHandCards();
+//	}
 	
 			
 	

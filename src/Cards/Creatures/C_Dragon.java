@@ -9,6 +9,7 @@ public class C_Dragon extends Creature{
 	private static final long serialVersionUID = 1L;
 
 	public  C_Dragon (){
+		name = "Dragon";
 		isCreature = true;
 		health = 8;
 		attack = 8;

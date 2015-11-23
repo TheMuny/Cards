@@ -2,7 +2,7 @@ package Cards.Spells;
 
 import Cards.Card;
 import Cards.Creatures.Creature;
-import Models.Player;
+import Room.Player;
 
 
 
@@ -13,8 +13,8 @@ public class S_FireBall extends Spell implements Cast{
 	 * 
 	 */
 	public S_FireBall(){
-		name = "S_FireBall";
-		cost = 6;
+		name = "FireBall";
+		cost = 4;
 	}
 	
 	private static final long serialVersionUID = 1L;

@@ -2,8 +2,7 @@ package Cards.Spells;
 
 import Cards.Card;
 import Cards.Creatures.Creature;
-import Models.Player;
-
+import Room.Player;
 
 
 public class  S_HellFire extends Spell implements Cast{
@@ -12,7 +11,7 @@ public class  S_HellFire extends Spell implements Cast{
 	 * 
 	 */
    public S_HellFire(){
-	   name="S_HellFire";
+	   name="HellFire";
 	   cost = 4;
    }
 	private static final long serialVersionUID = 1L;

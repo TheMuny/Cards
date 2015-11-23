@@ -2,7 +2,7 @@ package Cards.Spells;
 
 import Cards.Card;
 import Cards.Creatures.Creature;
-import Models.Player;
+import Room.Player;
 
 
 
@@ -14,7 +14,7 @@ public class S_FireWall extends Spell implements Cast{
 	 * 
 	 */
 	public S_FireWall(){
-		name = "S_FireBall";
+		name = "FireWall";
 		cost=7;
 	}
 	private static final long serialVersionUID = 1L;

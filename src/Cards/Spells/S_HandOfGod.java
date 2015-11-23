@@ -2,7 +2,7 @@ package Cards.Spells;
 
 import Cards.Card;
 import Cards.Creatures.Creature;
-import Models.Player;
+import Room.Player;
 
 
 
@@ -12,7 +12,7 @@ public class S_HandOfGod extends Spell implements Cast{
 	 * 
 	 */
    public S_HandOfGod(){
-	   name  = "S_HandOfGod";
+	   name  = "HandOfGod";
 	   cost = 2;
    } 
    

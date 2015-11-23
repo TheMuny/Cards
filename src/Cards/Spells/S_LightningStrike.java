@@ -4,7 +4,7 @@ import java.util.Random;
 
 import Cards.Card;
 import Cards.Creatures.Creature;
-import Models.Player;
+import Room.Player;
 
 
 public class S_LightningStrike extends Spell implements Cast{
@@ -14,7 +14,7 @@ public class S_LightningStrike extends Spell implements Cast{
 	 */
 
 	public S_LightningStrike(){
-		name = "S_LightningStrike";
+		name = "LightningStrike";
 		cost = 1;
 	}
 	
