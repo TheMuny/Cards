@@ -3,8 +3,7 @@ package Room;
 import Cards.Card;
 public class Hand{
    
-	 private Card [] Array = new Card [1];
-	
+    private Card [] Array = new Card [1];
 
 	public Card getValue(int index) {
 		return Array[index];

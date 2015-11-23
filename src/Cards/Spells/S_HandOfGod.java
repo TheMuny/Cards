@@ -1,10 +1,12 @@
 package Cards.Spells;
 
+import Cards.Card;
 import Cards.Creatures.Creature;
+import Models.Player;
 
 
 
-public class S_HandOfGod extends Spell{
+public class S_HandOfGod extends Spell implements Cast{
 	
 	/**
 	 * 
@@ -17,11 +19,29 @@ public class S_HandOfGod extends Spell{
 
 	private static final long serialVersionUID = 1L;
 
-	public void handOfGod(Creature creature) {	
-		if(isDead==false){
-		creature.modifyHealth(creature.getHealth()+6);}
-		isDead=true;
-	}
 	/*	restore 6 health to selected creature */
+
+
+	public void useCast(Card[] table) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void useCast(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void useCast(Creature creature) {
+		if(isDead==false){
+			creature.modifyHealth(creature.getHealth()+6);}
+			isDead=true;
+		
+	}
+
+	public void hellFire(Card[] table, Card[] table1) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

@@ -1,6 +1,8 @@
 package Room;
 
 import Cards.Card;
+import Cards.Creatures.Creature;
+import Cards.Spells.Cast;
 import Cards.Spells.Spell;
 
 
@@ -8,7 +10,7 @@ import Cards.Spells.Spell;
 public class Player implements Models.Player{
 
 	private  String  file = "Deck";
-	private int crystalls = 8;
+	private int crystalls = 20;
     private int health=30;
 	private Hand hand = new Hand();
 //	private int mana =0;
@@ -98,8 +100,35 @@ public class Player implements Models.Player{
 		if(!selectCard(positionInHand).isDead()&&selectCard(positionInHand).getCost()<=crystalls&&
 				selectCard(positionInHand).isSpell()){
 			crystalls = crystalls -selectCard(positionInHand).getCost();
-			selectCard(positionInHand).getName();
-			
+			Cast s = (Cast)selectCard(positionInHand);
+			s.useCast(player);			
+		}
+	}
+	public void useCast(int positionInHand, Creature creature){
+		//TODO
+		if(!selectCard(positionInHand).isDead()&&selectCard(positionInHand).getCost()<=crystalls&&
+				selectCard(positionInHand).isSpell()){
+			crystalls = crystalls -selectCard(positionInHand).getCost();
+			Cast s = (Cast)selectCard(positionInHand);
+			s.useCast(creature);			
+		}
+	}
+	public void useCast(int positionInHand,Card[] table){
+		//TODO
+		if(!selectCard(positionInHand).isDead()&&selectCard(positionInHand).getCost()<=crystalls&&
+				selectCard(positionInHand).isSpell()){
+			crystalls = crystalls -selectCard(positionInHand).getCost();
+			Cast s = (Cast)selectCard(positionInHand);
+			s.useCast(table);			
+		}
+	}
+	public void useCast(int positionInHand,Card[] table,Card[]table1){
+		//TODO
+		if(!selectCard(positionInHand).isDead()&&selectCard(positionInHand).getCost()<=crystalls&&
+				selectCard(positionInHand).isSpell()){
+			crystalls = crystalls -selectCard(positionInHand).getCost();
+			Cast s = (Cast)selectCard(positionInHand);
+			s.hellFire(table,table1);			
 		}
 	}
 	//testMethods

@@ -2,6 +2,9 @@ package Cards;
 
 import java.io.Serializable;
 
+import Cards.Creatures.Creature;
+import Models.Player;
+
 public abstract class Card implements Serializable{
 
 	/**
@@ -18,6 +21,19 @@ public abstract class Card implements Serializable{
 	protected boolean isWeapon;
 	protected boolean isSpell;
 	
+//	
+//	public void chainLighting(Card[] table){}
+//	public void fireBToFace(Player player){}
+//	public void fireWall(Card[] table){}
+//	public void frostBToFace(Player player){}
+//	public void frostBToCreature(Creature creature){}
+//	public void frostNova(Card[] table){}
+//	public void handOfGod(Creature creature){}
+//	public void hellFire(Card[] table, Card[] table1){}
+//	public void Rain(Card[] table){}
+//	public void lightningStrike(Creature creature){}
+//	
+
 	
 	public String getName() {
 		return name;
