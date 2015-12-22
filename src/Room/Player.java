@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 
 public class Player{
@@ -135,6 +136,7 @@ public class Player{
 		deck.remove(0);		
 		}else{deck.remove(0);}
 		}catch(Exception e){
+			modifyHealth(getHealth()-2);
 			System.out.println("You have no Cards :(");}
 	}
 	
@@ -191,10 +193,18 @@ public class Player{
 	
 	                              //testMethods
 	public void printHandCards(){
+		System.out.println("\r\n"+"Your current crystalls  --  " + getCrystals());
+//		List<String> list = hand.stream()
+//				.map(Card->Card.getName()).collect(Collectors.toList());
+//		List<Integer>list1 =  hand.stream()
+//				.map(Card->Card.getCost()).collect(Collectors.toList());
+//		System.out.println(list+""+list1);
+//	}
 		for(Card i:hand){
-			System.out.println(i.getName()+"  "+i.getCost());
+			System.out.print("   "+i.getName()+"--"+i.getCost());
 		}
-		System.out.println("CurrentCrystalls = " + getCrystals());
+	System.out.println("\r\n Press <<p>> for skip turn");
+	
 	}
 	
 //	public static void main(String[] args)  throws IOException, ClassNotFoundException{	
