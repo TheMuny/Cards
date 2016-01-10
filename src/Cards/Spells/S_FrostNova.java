@@ -1,5 +1,7 @@
 package Cards.Spells;
 
+import java.util.List;
+
 import Cards.Card;
 import Cards.Creatures.Creature;
 import Room.Player;
@@ -18,12 +20,12 @@ public class S_FrostNova extends Spell implements Cast{
 
 	/*freeze all enemy creatures on the table for 1 turn*/
 
-	public void useCast(Card[] table) {
+	public void useCast(List<Creature> table) {
 		if(isDead==false){
 		// TODO Auto-generated method stub
-		for(int i =0;i<table.length;i++){
-			if(table[i]instanceof Creature){
-				Creature m = (Creature)table[i];
+		for(int i =0;i<table.size();i++){
+			if(table.get(i)instanceof Creature){
+				Creature m = (Creature)table.get(i);
 				m.freez(1);}
 			}
      	}isDead = true;
@@ -40,7 +42,7 @@ public class S_FrostNova extends Spell implements Cast{
 		
 	}
 
-	public void hellFire(Card[] table, Card[] table1) {
+	public void hellFire(List<Creature> table, List<Creature> table1) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,5 +1,6 @@
 package Cards.Spells;
 
+import java.util.List;
 import java.util.Random;
 
 import Cards.Card;
@@ -21,12 +22,12 @@ public class S_LightningStrike extends Spell implements Cast{
 	private static final long serialVersionUID = 1L;
 
 
-	public void hellFire(Card[] table, Card[] table1) {
+	public void hellFire(List<Creature> table,List<Creature> table1) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void useCast(Card[] table) {
+	public void useCast(List<Creature> table) {
 		// TODO Auto-generated method stub
 		
 	}

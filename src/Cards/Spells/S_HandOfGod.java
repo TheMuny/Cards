@@ -1,5 +1,7 @@
 package Cards.Spells;
 
+import java.util.List;
+
 import Cards.Card;
 import Cards.Creatures.Creature;
 import Room.Player;
@@ -22,7 +24,7 @@ public class S_HandOfGod extends Spell implements Cast{
 	/*	restore 6 health to selected creature */
 
 
-	public void useCast(Card[] table) {
+	public void useCast(List<Creature> table) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -39,7 +41,7 @@ public class S_HandOfGod extends Spell implements Cast{
 		
 	}
 
-	public void hellFire(Card[] table, Card[] table1) {
+	public void hellFire(List<Creature> table, List<Creature> table1) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,5 +1,7 @@
 package Cards.Spells;
 
+import java.util.List;
+
 import Cards.Card;
 import Cards.Creatures.Creature;
 import Room.Player;
@@ -20,18 +22,18 @@ public class S_HolyRain extends Spell implements Cast{
 
 }
 
-	public void hellFire(Card[] table, Card[] table1) {
+	public void hellFire(List<Creature> table,List<Creature> table1) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void useCast(Card[] table) {
+	public void useCast(List<Creature> table) {
 		// TODO Auto-generated method stub
 		if(isDead==false){
-		for(int i =0;i<table.length;i++){
+		for(int i =0;i<table.size();i++){
 			
-			if(table[i]instanceof Creature){
-				Creature m = (Creature)table[i];				
+			if(table.get(i)instanceof Creature){
+				Creature m = (Creature)table.get(i);				
 				m.modifyHealth(m.getHealth()+2);}
 		}		
 	}isDead=true;

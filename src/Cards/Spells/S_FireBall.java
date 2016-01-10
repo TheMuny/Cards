@@ -1,5 +1,7 @@
 package Cards.Spells;
 
+import java.util.List;
+
 import Cards.Card;
 import Cards.Creatures.Creature;
 import Room.Player;
@@ -21,7 +23,7 @@ public class S_FireBall extends Spell implements Cast{
 	/*deal 6 damage to enemy target(creatures that on the table or player)*/
 	//______________________________________________________________
 	
-	public void useCast(Card[] table) {
+	public void useCast(List<Creature> table) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -34,16 +36,16 @@ public class S_FireBall extends Spell implements Cast{
 	}
 
 	public void useCast(Creature creature) {
-		if(isDead=false){
+		if(isDead==false){
 			creature.modifyHealth(creature.getHealth()-6);
 			}
 			isDead = true;
 		
 	}
 
-	public void hellFire(Card[] table, Card[] table1) {
+	public void hellFire(List<Creature> table, List<Creature> table1) {
 		// TODO Auto-generated method stub
 		
-	}
+	}		
 	
 }

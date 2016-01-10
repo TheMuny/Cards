@@ -20,7 +20,7 @@ public class Player{
     private int health=30;
 	private List<Card> hand = new ArrayList<Card>();
 	private List<Card> deck = new ArrayList<Card>();
-
+	private List<Creature> table = new ArrayList<Creature>();
 	
 	//********************************************************//********************************************************
 	                         //  Constructor
@@ -62,22 +62,28 @@ public class Player{
 	
                            //Methods with GameBoard
 
-	public void putOnTable(int positionInHand, Card[]table, int positionOnTable) {
+	
+	public void putOnTable(int positionInHand, List<Creature>table) {
 		try{
 		if(!hand.get(positionInHand).isDead()&&hand.get(positionInHand).getCost()<=crystals&&
 		hand.get(positionInHand).isCreature()){
 		crystals = crystals -hand.get(positionInHand).getCost();
-		table[positionOnTable]=hand.get(positionInHand);
+		table.add((Creature)hand.get(positionInHand));
 	    hand.remove(positionInHand);}
 		}catch(Exception e){
 			System.out.println("Wrong arguments");
 		}
 		
 	}
-	public void takeFromTable(Card[]table, int number) {
+	public List<Creature> getTable() {
+		return table;
+	}
+
+
+	public void takeFromTable(List<Card>table, int number) {
         try{
-	    hand.add(table[number]);
-	    table[number]=null;
+	    hand.add(table.get(number));
+	    table.remove(number);
 	    }catch(Exception e){
 		System.out.println("Wrong arguments");
 		}
@@ -152,6 +158,8 @@ public class Player{
 		return  hand;	
 	}
 	//********************************************************//********************************************************
+	                              
+	//********************************************************//********************************************************
 	                              //Cast interface
 	public void useCast(int positionInHand, Player player){
 		//TODO
@@ -171,7 +179,7 @@ public class Player{
 			s.useCast(creature);			
 		}
 	}
-	public void useCast(int positionInHand,Card[] table){
+	public void useCast(int positionInHand,List<Creature> table){
 		//TODO
 		if(!hand.get(positionInHand).isDead()&&hand.get(positionInHand).getCost()<=crystals&&
 				hand.get(positionInHand).isSpell()){
@@ -180,7 +188,7 @@ public class Player{
 			s.useCast(table);			
 		}
 	}
-	public void useCast(int positionInHand,Card[] table,Card[]table1){
+	public void useCast(int positionInHand,List<Creature> table,List<Creature>table1){
 		//TODO
 		if(!hand.get(positionInHand).isDead()&&hand.get(positionInHand).getCost()<=crystals&&
 				hand.get(positionInHand).isSpell()){

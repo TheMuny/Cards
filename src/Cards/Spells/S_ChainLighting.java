@@ -1,5 +1,6 @@
 package Cards.Spells;
 
+import java.util.List;
 import java.util.Random;
 
 import Cards.Card;
@@ -34,11 +35,11 @@ public class S_ChainLighting  extends Spell implements Cast{
 	/*make 4 steps from enemy creature to random enemy creature on the table 
 	 *  and deal random damage between 2 and 3 hp to the each creature*/
 
-	public void useCast(Card[] table) {
+	public void useCast(List<Creature> table) {
 		if(isDead==false){		
-			for(int i =0;i<table.length;i++){
-				if(table[i]instanceof Creature){
-					Creature m = (Creature)table[i];
+			for(int i =0;i<table.size();i++){
+				if(table.get(i)instanceof Creature){
+					Creature m = (Creature)table.get(i);
 					Random r = new Random();
 					int rand = r.nextInt(2)+2;
 					m.modifyHealth(m.getHealth()-rand);}}}
@@ -59,7 +60,7 @@ public class S_ChainLighting  extends Spell implements Cast{
 }
 
 
-	public void hellFire(Card[] table, Card[] table1) {
+	public void hellFire(List<Creature> table, List<Creature> table1) {
 		// TODO Auto-generated method stub
 		
 	}		
